@@ -1,6 +1,4 @@
 var buttons = document.getElementsByTagName("button");
-var inputs = document.getElementsByTagName("input");
-var outputs = document.getElementsByClassName("output");
 
 function codeerMetLetter(letter, Vletter, string) {
   while (string.indexOf(letter) != -1) {
@@ -20,3 +18,11 @@ function codeer(tekst) {
   tekst = codeerMetLetter("i", "%", tekst);
   return tekst;
 }
+
+buttons[0].addEventListener("click", function() {
+  var inputs = document.getElementsByTagName("input");
+  var outputs = document.getElementsByClassName("output");
+
+  outputs[0].innerHTML += codeer(inputs[0].value);
+
+});
