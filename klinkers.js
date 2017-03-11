@@ -8,7 +8,7 @@ String.prototype.findReplace = function (find, replace) {
       while (result.indexOf(find[i]) != -1) {
         var str1 = result.substr(0, result.indexOf(find[i]));
         str1 += replace[i];
-        var str2 = result.substr(result.indexOf(find[i])+1, result.length);
+        var str2 = result.substr(result.indexOf(find[i])+find[i].length, result.length);
         result = str1 + str2;
       }
     }
@@ -16,7 +16,7 @@ String.prototype.findReplace = function (find, replace) {
     while (result.indexOf(find) != -1) {
       var str1 = result.substr(0, result.indexOf(find));
       str1 += replace;
-      var str2 = result.substr(result.indexOf(find)+1, result.length);
+      var str2 = result.substr(result.indexOf(find)+find.length, result.length);
       result = str1 + str2;
     }
   }
@@ -28,7 +28,6 @@ var test = "test";
 var buttons = document.getElementsByTagName("button");
 
 buttons[0].addEventListener("click", function() {
-  console.log("click");
   var inputValue = document.getElementsByTagName("input")[0].value;
   var outputs = document.getElementsByClassName("output");
   outputs[0].innerHTML += inputValue.findReplace(["a", "e", "o", "u", "i"],["!", "@", "#", "$", "%"])+"<br>";
